@@ -1,0 +1,7 @@
+# Local files
+.DS_Store
+.idea/
+.vscode/
+
+# Kubernetes local
+*.local
