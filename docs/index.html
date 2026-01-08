@@ -1,38 +1,94 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Kubernetes DevOps Guides</title>
-  <link rel="stylesheet" href="/docs/styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kubernetes DevOps Guides</title>
+<link rel="stylesheet" href="/docs/styles.css">
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Kubernetes DevOps Guides</h1>
-      <p>Index of concise guides. Click a guide to open the full page.</p>
-    </header>
-    <main>
-      <div class="card">
-        <h2>Guides</h2>
-        <nav>
-          <ul>
-            <li><a href="guides/01-intro.html">Kubernetes DevOps — Introduction</a></li>
-            <li><a href="guides/02-gitops-argo.html">GitOps with Argo CD</a></li>
-            <li><a href="guides/03-ci-cd.html">CI/CD patterns for Kubernetes</a></li>
-            <li><a href="guides/04-helm.html">Helm: packaging and releases</a></li>
-            <li><a href="guides/05-monitoring.html">Monitoring and Observability</a></li>
-            <li><a href="guides/06-security.html">Kubernetes Security Best Practices</a></li>
-            <li><a href="guides/07-backup-restore.html">Backup and Restore</a></li>
-            <li><a href="guides/08-networking.html">Networking and Service Mesh</a></li>
-            <li><a href="guides/09-troubleshooting.html">Troubleshooting Kubernetes</a></li>
-          </ul>
-        </nav>
+    <header class="header">
+      <div class="brand">
+        <div class="logo">KD</div>
+        <div>
+          <h2 class="title">Kubernetes DevOps Guides</h2>
+          <div class="subtitle">Concise, practical guides for platform engineers and SREs</div>
+        </div>
       </div>
-      <footer>
-        <p>Generated: 2026-01-08</p>
-      </footer>
+      <div class="meta">Updated: 2026-01-08</div>
+    </header>
+
+    <section class="hero">
+      <div class="left">
+        <h1>Make your Kubernetes platform reliable, secure, and observable</h1>
+        <p>Browse curated guides that explain patterns, recommended tools, and real-world steps.</p>
+        <div class="search"><input id="search" placeholder="Search guides by title or keyword…" /></div>
+      </div>
+      <div class="right" style="min-width:220px">
+        <div style="background:linear-gradient(180deg,#061826,#072836);padding:12px;border-radius:10px;text-align:center">
+          <div style="font-size:20px;font-weight:700">Start</div>
+          <div style="color:var(--muted);font-size:13px">Select a guide to read</div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div id="cards" class="grid">
+        <a class="card" href="guides/01-intro.html" data-title="Kubernetes DevOps — Introduction" data-desc="Audience: platform engineers, SREs, DevOps practitioners.">
+          <h3>Kubernetes DevOps — Introduction</h3>
+          <p>Audience: platform engineers, SREs, DevOps practitioners.</p>
+        </a>
+        <a class="card" href="guides/02-gitops-argo.html" data-title="GitOps with Argo CD" data-desc="Overview:">
+          <h3>GitOps with Argo CD</h3>
+          <p>Overview:</p>
+        </a>
+        <a class="card" href="guides/03-ci-cd.html" data-title="CI/CD patterns for Kubernetes" data-desc="CI responsibilities:">
+          <h3>CI/CD patterns for Kubernetes</h3>
+          <p>CI responsibilities:</p>
+        </a>
+        <a class="card" href="guides/04-helm.html" data-title="Helm: packaging and releases" data-desc="Use Helm to templatize Kubernetes resources and manage releases.">
+          <h3>Helm: packaging and releases</h3>
+          <p>Use Helm to templatize Kubernetes resources and manage releases.</p>
+        </a>
+        <a class="card" href="guides/05-monitoring.html" data-title="Monitoring and Observability" data-desc="Core stack: Prometheus, Alertmanager, Grafana, and a logging solution (Loki/ELK).">
+          <h3>Monitoring and Observability</h3>
+          <p>Core stack: Prometheus, Alertmanager, Grafana, and a logging solution (Loki/ELK).</p>
+        </a>
+        <a class="card" href="guides/06-security.html" data-title="Kubernetes Security Best Practices" data-desc="Essentials:">
+          <h3>Kubernetes Security Best Practices</h3>
+          <p>Essentials:</p>
+        </a>
+        <a class="card" href="guides/07-backup-restore.html" data-title="Backup and Restore" data-desc="Components to protect:">
+          <h3>Backup and Restore</h3>
+          <p>Components to protect:</p>
+        </a>
+        <a class="card" href="guides/08-networking.html" data-title="Networking and Service Mesh" data-desc="Topics:">
+          <h3>Networking and Service Mesh</h3>
+          <p>Topics:</p>
+        </a>
+        <a class="card" href="guides/09-troubleshooting.html" data-title="Troubleshooting Kubernetes" data-desc="Checklist:">
+          <h3>Troubleshooting Kubernetes</h3>
+          <p>Checklist:</p>
+        </a>
+      </div>
     </main>
+
+    <footer class="footer">Made with ♥ — Kubernetes DevOps Guides • Hosted on GitHub Pages</footer>
   </div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+// client-side search
+const input = document.getElementById('search');
+input.addEventListener('input', ()=>{
+  const q = input.value.toLowerCase();
+  document.querySelectorAll('#cards .card').forEach(card=>{
+    const title = card.dataset.title.toLowerCase();
+    const desc = card.dataset.desc.toLowerCase();
+    card.style.display = (title.includes(q) || desc.includes(q)) ? 'block' : 'none';
+  });
+});
+</script>
 </body>
 </html>
