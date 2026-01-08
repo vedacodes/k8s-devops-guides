@@ -1,33 +1,46 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Helm: packaging and releases — Kubernetes DevOps Guides</title>
-  <link rel="stylesheet" href="/docs/styles.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Helm: packaging and releases — Kubernetes DevOps Guides</title>
+<link rel="stylesheet" href="/docs/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
 </head>
 <body>
-  <div class="container">
-    <header>
+  <div class="container guide-article fade-up">
+    <div class="guide-hero">
       <h1>Helm: packaging and releases</h1>
-      <p><a href="/docs/index.html">◀ Back to index</a></p>
-    </header>
-    <main>
-      <div class="card">
-        <pre>
-# Helm: packaging and releases
-
-Use Helm to templatize Kubernetes resources and manage releases.
-
-Guidance:
-- Keep values.yaml small; use overrides for environment-specific configs.
-- Use chartmuseum or OCI registries for chart storage.
-- Lock chart versions for reproducible deployments.
-
-Security: scan charts and images; enable imagePullSecrets when needed.
-        </pre>
+      <div class="meta">Updated: 2026-01-08</div>
+    </div>
+    <div class="layout">
+      <div>
+        <article class="content" id="content">Loading…</article>
       </div>
-    </main>
+      <aside class="toc" id="toc">
+        <h4>Contents</h4>
+        <nav id="toc-links"></nav>
+      </aside>
+    </div>
   </div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>
+const md = ;
+marked.setOptions({
+  highlight: function(code, lang) { try { return hljs.highlight(code, {language: lang}).value } catch(e) { return hljs.highlightAuto(code).value } }
+});
+const html = marked.parse(md);
+const content = document.getElementById('content');
+content.innerHTML = html;
+// build TOC
+const toc = document.getElementById('toc-links');
+const headings = content.querySelectorAll('h1,h2,h3');
+headings.forEach(h=>{if(!h.id){h.id=h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-')} if(h.tagName!=='H1'){const a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;toc.appendChild(a);}});
+// highlight
+content.querySelectorAll('pre code').forEach((block)=>{hljs.highlightElement(block);
+  // add copy button
+  const btn=document.createElement('button');btn.className='copy-btn';btn.innerHTML='Copy';btn.addEventListener('click',async ()=>{try{await navigator.clipboard.writeText(block.innerText);btn.innerText='Copied';setTimeout(()=>btn.innerText='Copy',1500)}catch(e){btn.innerText='Err'}});const pre=block.closest('pre');if(pre){pre.style.position='relative';pre.appendChild(btn);} });
+</script>
 </body>
 </html>
