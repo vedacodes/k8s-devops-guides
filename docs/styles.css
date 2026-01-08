@@ -1,0 +1,8 @@
+body{font-family:Inter,system-ui,Segoe UI,Arial,Helvetica,sans-serif;margin:40px;background:#f7f9fc;color:#0f1724}
+.container{max-width:920px;margin:0 auto}
+header h1{margin:0 0 8px}
+nav ul{padding-left:20px}
+.card{background:#fff;border:1px solid #e6edf3;padding:18px;border-radius:8px;margin-bottom:14px}
+pre{white-space:pre-wrap;word-break:break-word;background:#0b1220;color:#e6f0ff;padding:16px;border-radius:6px;overflow:auto}
+a{color:#0366d6;text-decoration:none}
+a:hover{text-decoration:underline}

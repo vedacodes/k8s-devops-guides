@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Backup and Restore — Kubernetes DevOps Guides</title>
+  <link rel="stylesheet" href="/docs/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Backup and Restore</h1>
+      <p><a href="/docs/index.html">◀ Back to index</a></p>
+    </header>
+    <main>
+      <div class="card">
+        <pre>
+# Backup and Restore
+
+Components to protect:
+- ETCD (cluster state)
+- PVC snapshots (persistent data)
+- Cluster config and manifests in Git
+
+Tools: Velero for backups, Velero plugins for cloud providers, etcd snapshotting for control plane.
+
+Restore drills: automate restore tests and schedule regular recovery exercises.
+        </pre>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
